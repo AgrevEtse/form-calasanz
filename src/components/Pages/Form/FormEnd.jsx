@@ -43,7 +43,7 @@ const FormEnd = forwardRef(() => {
               Reinscripcion
             </button>
           </Link>
-          <Link to='https://gomezdemendiola.net/'>
+          <Link to='https://www.calasanz.edu.mx/'>
             <button
               className='btn btn-info rounded-xl py-2'
               onClick={handleClick}
