@@ -1,0 +1,91 @@
+import { createCurrentDate } from '@/utils/dateFormater'
+
+export const DEFAULT_CURP = ''
+
+export const DEFAULT_ESCUELA_PROCEDENCIA = {
+  cct: '',
+  matricula: '',
+  nombre: ''
+}
+
+export const DEFAULT_ALUMNO = {
+  nombre: '',
+  apellido_paterno: '',
+  apellido_materno: '',
+  genero: '0',
+  es_diestro: true,
+  fecha_nacimiento: createCurrentDate(),
+  nacionalidad: '0',
+  tipo_sanguineo: '0',
+  estatura_cm: '',
+  peso_kg: '',
+  nota_enfermedad: '',
+  nota_terapia: ''
+}
+
+export const DEFAULT_DOMICILIO = {
+  domicilio: '',
+  colonia: '',
+  codigo_postal: '',
+  estado: '0',
+  ciudad: ''
+}
+
+export const DEFAULT_INSCRIPCION = {
+  id_ciclo: '',
+  id_escolaridad: '',
+  escolaridad: '0',
+  grado: 0,
+  fecha_inscripcion: createCurrentDate(),
+  esta_activo: false,
+  grupo: null
+}
+
+export const DEFAULT_TUTOR = {
+  nombre: '',
+  apellido_paterno: '',
+  apellido_materno: '',
+  estado_nacimiento: '',
+  fecha_nacimiento: createCurrentDate(),
+  telefono_movil: '',
+  telefono_fijo: '',
+  correo_electronico: '',
+  oupacion: '',
+  grado_max_estudios: '0',
+  domicilio: '',
+  colonia: '',
+  codigo_postal: '',
+  primario: 0
+}
+
+export const DEFAULT_HERMANO = {
+  nombre: '',
+  nivel: '0'
+}
+
+export const DEFAULT_CONTACTO = {
+  nombre: '',
+  telefono: '',
+  parentesco: 0,
+  otro: ''
+}
+
+export const DEFAULT_PAGO = {
+  nombre: '',
+  telefono: '',
+  correo: '',
+  factura: false,
+  responsable: 0
+}
+
+export const DEFAULT_FORM = {
+  escuela: DEFAULT_ESCUELA_PROCEDENCIA,
+  alumno: DEFAULT_ALUMNO,
+  domicilio: DEFAULT_DOMICILIO,
+  inscripcion: DEFAULT_INSCRIPCION,
+  tutor_1: DEFAULT_TUTOR,
+  tutor_2: DEFAULT_TUTOR,
+  hermanos: [DEFAULT_HERMANO, DEFAULT_HERMANO, DEFAULT_HERMANO],
+  contactos: [DEFAULT_CONTACTO, DEFAULT_CONTACTO, DEFAULT_CONTACTO],
+  persona_pago: DEFAULT_PAGO
+}
