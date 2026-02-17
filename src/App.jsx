@@ -17,7 +17,7 @@ const App = () => {
   return (
     <>
       <div className='container mx-auto'>
-        <div className='navbar bg-primary text-primary-content w-full rounded-2xl shadow-sm'>
+        <div className='navbar bg-neutral text-neutral-content w-full rounded-2xl shadow-sm'>
           <div className='navbar-start'>
             <Link
               className='btn btn-secondary text-xl'

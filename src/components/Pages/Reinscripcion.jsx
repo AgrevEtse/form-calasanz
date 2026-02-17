@@ -195,7 +195,8 @@ const Reinscripcion = () => {
       <h2 className='mb-10 text-center text-5xl font-bold'>Reinscripción</h2>
       <h3 className='mb-4 text-center text-3xl'>Ingresa la CURP del alumno</h3>
       <h4 className='mb-4 text-center text-xl'>
-        Si cambió la información, favor de actualizarla
+        Si cambió la información, favor de ir a control escolar para
+        actualizarla
       </h4>
       <label className='floating-label w-2xs'>
         <span>CURP</span>

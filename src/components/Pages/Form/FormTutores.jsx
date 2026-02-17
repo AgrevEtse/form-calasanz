@@ -28,7 +28,7 @@ const FormTutores = forwardRef((_, ref) => {
   }))
 
   return (
-    <div className='mx-auto w-full rounded-md p-6 text-white shadow-md'>
+    <div className='mx-auto flex w-full flex-col items-center justify-center rounded-md p-6 shadow-md'>
       <h2 className='mb-6 text-center text-2xl font-bold'>
         Datos de los Tutores
       </h2>
@@ -55,7 +55,7 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='text'
             placeholder='Nombre(s) *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -79,7 +79,7 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='text'
             placeholder='Apellido Paterno *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -103,7 +103,7 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='text'
             placeholder='Apellido Materno *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -127,11 +127,11 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='text'
             placeholder='Lugar de Nacimiento *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
-        <label className='input input-md border-white'>
+        <label className='input input-md w-full'>
           <span className='label'>
             Fecha Nacimiento <span className='text-rose-600'>*</span>
           </span>
@@ -171,7 +171,7 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='text'
             placeholder='Domicilio *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -195,7 +195,7 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='text'
             placeholder='Colonia *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -219,7 +219,7 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='number'
             placeholder='C.P. *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -244,7 +244,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='tel'
             placeholder='Télefono (móvil) *'
             pattern='[0-9]{10}'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -266,7 +266,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='tel'
             placeholder='Télefono (fijo)'
             pattern='[0-9]{10}'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -290,7 +290,7 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='email'
             placeholder='Correo Electrónico *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -314,11 +314,11 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='text'
             placeholder='Ocupación *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
-        <label className='select select-md border-white'>
+        <label className='select select-md w-full'>
           <span className='label'>
             Grado Máx Estudios <span className='text-rose-600'>*</span>
           </span>
@@ -352,7 +352,7 @@ const FormTutores = forwardRef((_, ref) => {
           </select>
         </label>
 
-        <label className='select select-md border-white'>
+        <label className='select select-md w-full'>
           <span className='label'>
             ¿Es tutor principal? <span className='text-rose-600'>*</span>
           </span>
@@ -411,7 +411,7 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='text'
             placeholder='Nombre(s) *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -435,7 +435,7 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='text'
             placeholder='Apellido Paterno *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -459,7 +459,7 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='text'
             placeholder='Apellido Materno *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -483,11 +483,11 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='text'
             placeholder='Lugar de Nacimiento *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
-        <label className='input input-md border-white'>
+        <label className='input input-md w-full'>
           <span className='label'>
             Fecha Nacimiento <span className='text-rose-600'>*</span>
           </span>
@@ -527,7 +527,7 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='text'
             placeholder='Domicilio *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -551,7 +551,7 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='text'
             placeholder='Colonia *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -575,7 +575,7 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='number'
             placeholder='C.P. *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -600,7 +600,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='tel'
             placeholder='Teléfono (móvil) *'
             pattern='[0-9]{10}'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -622,7 +622,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='tel'
             placeholder='Teléfono (fijo)'
             pattern='[0-9]{10}'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -646,7 +646,7 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='email'
             placeholder='Correo Electrónico *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
@@ -670,11 +670,11 @@ const FormTutores = forwardRef((_, ref) => {
             required
             type='text'
             placeholder='Ocupación *'
-            className='input input-md border-white'
+            className='input input-md w-full'
           />
         </label>
 
-        <label className='select select-md border-white'>
+        <label className='select select-md w-full'>
           <span className='label'>
             Grado Máx Estudios <span className='text-rose-600'>*</span>
           </span>
@@ -708,7 +708,7 @@ const FormTutores = forwardRef((_, ref) => {
           </select>
         </label>
 
-        <label className='select select-md border-white'>
+        <label className='select select-md w-full'>
           <span className='label'>
             ¿Es tutor principal? <span className='text-rose-600'>*</span>
           </span>

@@ -18,7 +18,7 @@ const FormEnd = forwardRef(() => {
 
   return (
     <div className='flex items-center justify-center p-4'>
-      <div className='bg-primary text-primary-content w-full max-w-md rounded-2xl p-8 text-center shadow-2xl'>
+      <div className='bg-neutral text-neutral-content w-full max-w-md rounded-2xl p-8 text-center shadow-2xl'>
         <h2 className='mb-4 text-5xl font-extrabold'>Registro Terminado</h2>
         <p className='mb-3'>
           Concluiste satisfactoriamente el registro del alumno.
