@@ -24,7 +24,7 @@ const FormPago = forwardRef((_, ref) => {
   }))
 
   return (
-    <div className='mx-auto flex w-full flex-col items-center justify-center rounded-md p-6 shadow-md'>
+    <div className='bg-base-200 text-base-content mx-auto flex w-full flex-col items-center justify-center rounded-md p-6 shadow-2xl'>
       <h2 className='mb-6 text-center text-2xl font-bold'>
         Responsable de Pagos
       </h2>
@@ -48,11 +48,11 @@ const FormPago = forwardRef((_, ref) => {
             }
             type='text'
             placeholder='Nombre Completo *'
-            className='input input-md w-full'
+            className='input input-md border-base-content w-full'
           />
         </label>
 
-        <label className='select select-md w-full'>
+        <label className='select select-md border-base-content w-full'>
           <span className='label'>
             Parentesco <span className='text-rose-600'>*</span>
           </span>
@@ -103,7 +103,7 @@ const FormPago = forwardRef((_, ref) => {
             }
             type='email'
             placeholder='Correo Electrónico *'
-            className='input input-md w-full'
+            className='input input-md border-base-content w-full'
           />
         </label>
 
@@ -125,11 +125,11 @@ const FormPago = forwardRef((_, ref) => {
             type='tel'
             placeholder='Télefono (móvil) *'
             pattern='[0-9]{10}'
-            className='input input-md w-full'
+            className='input input-md border-base-content w-full'
           />
         </label>
 
-        <label className='select select-md w-full'>
+        <label className='select select-md border-base-content w-full'>
           <span className='label'>
             ¿Requiere Factura? <span className='text-rose-600'>*</span>
           </span>

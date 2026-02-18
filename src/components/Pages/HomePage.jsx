@@ -10,11 +10,11 @@ const HomePage = () => {
 
   return (
     <div className='flex min-h-screen items-center justify-center p-4'>
-      <div className='w-full max-w-md rounded-2xl bg-white p-8 text-center shadow-2xl'>
-        <h1 className='mb-4 text-3xl font-bold text-indigo-700'>
+      <div className='bg-base-200 text-base-content w-full max-w-md rounded-md p-8 text-center shadow-2xl'>
+        <h1 className='text-secondary mb-4 text-3xl font-bold'>
           Calasanz Inscripciones
         </h1>
-        <p className='mb-6 text-gray-600'>
+        <p className='mb-6'>
           Completa el formulario para asegurar tu lugar en el próximo ciclo
           escolar.
         </p>

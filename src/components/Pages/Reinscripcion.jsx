@@ -191,7 +191,7 @@ const Reinscripcion = () => {
   }
 
   return (
-    <div className='container my-16 flex h-full flex-col items-center justify-center'>
+    <div className='bg-base-200 text-base-content container my-16 flex h-full flex-col items-center justify-center rounded-md p-6 shadow-2xl'>
       <h2 className='mb-10 text-center text-5xl font-bold'>Reinscripción</h2>
       <h3 className='mb-4 text-center text-3xl'>Ingresa la CURP del alumno</h3>
       <h4 className='mb-4 text-center text-xl'>
@@ -203,7 +203,7 @@ const Reinscripcion = () => {
         <input
           type='text'
           placeholder='CURP'
-          className='input input-md'
+          className='input input-md border-base-content'
           value={curp}
           onChange={(e) => setCurp(e.target.value)}
         />
@@ -211,7 +211,7 @@ const Reinscripcion = () => {
 
       <div className='mt-6 flex flex-col items-center justify-center'>
         <button
-          className='btn btn-primary'
+          className='btn btn-info'
           onClick={fetchDataFromCurp}
           disabled={isLoading || !curp}
         >
