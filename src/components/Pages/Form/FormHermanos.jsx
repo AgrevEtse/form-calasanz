@@ -6,7 +6,7 @@ import { HermanoSchema } from '@/schemas/HermanoSchema'
 import { cambiarTitulo } from '@/utils/cambiarTitulo'
 
 const FormHermanos = forwardRef((_, ref) => {
-  const { form, dispatch } = useGlobalState()
+  const { form, dispatch, isReinscripcion } = useGlobalState()
 
   useEffect(() => {
     cambiarTitulo('Hermanos')
@@ -30,6 +30,30 @@ const FormHermanos = forwardRef((_, ref) => {
     }
   }))
 
+  const handleChange = (e, index) => {
+    const { name, value } = e.target
+
+    dispatch({
+      type: 'UPDATE_ARRAY_ITEM',
+      arrayName: 'hermanos',
+      index: index,
+      field: name,
+      value: value
+    })
+  }
+
+  const handleBlur = (e, index) => {
+    const { name, value } = e.target
+
+    dispatch({
+      type: 'UPDATE_ARRAY_ITEM',
+      arrayName: 'hermanos',
+      index: index,
+      field: name,
+      value: value.trim()
+    })
+  }
+
   return (
     <div className='bg-base-200 text-base-content mx-auto flex w-full flex-col rounded-md p-6 shadow-2xl'>
       <h2 className='mb-6 text-center text-2xl font-bold'>
@@ -45,21 +69,15 @@ const FormHermanos = forwardRef((_, ref) => {
                 <span>Nombre Completo</span>
                 <input
                   value={form.hermanos[i].nombre}
-                  onChange={(e) =>
-                    dispatch({
-                      type: 'UPDATE_ARRAY_ITEM',
-                      arrayName: 'hermanos',
-                      index: i,
-                      field: e.target.name,
-                      value: e.target.value
-                    })
-                  }
+                  onChange={(e) => handleChange(e, i)}
+                  onBlur={(e) => handleBlur(e, i)}
                   minLength={0}
                   maxLength={70}
                   name='nombre'
                   type='text'
                   placeholder='Nombre Completo'
                   className='input input-md border-base-content m-auto w-full'
+                  disabled={isReinscripcion}
                 />
               </label>
 
@@ -67,16 +85,9 @@ const FormHermanos = forwardRef((_, ref) => {
                 <span className='label'>Escolaridad</span>
                 <select
                   value={form.hermanos[i].nivel}
+                  disabled={isReinscripcion}
                   name='nivel'
-                  onChange={(e) =>
-                    dispatch({
-                      type: 'UPDATE_ARRAY_ITEM',
-                      arrayName: 'hermanos',
-                      index: i,
-                      field: e.target.name,
-                      value: e.target.value
-                    })
-                  }
+                  onChange={(e) => handleChange(e, i)}
                 >
                   <option
                     disabled
@@ -87,6 +98,7 @@ const FormHermanos = forwardRef((_, ref) => {
                   <option value='Preescolar'>Preescolar</option>
                   <option value='Primaria'>Primaria</option>
                   <option value='Secundaria'>Secundaria</option>
+                  {/* // XXX: DESCOMENTAR CUANDO QUIERAN PAGINA DE IDUKAY */}
                   {/* <option value='Bachillerato'>Bachillerato</option> */}
                 </select>
               </label>

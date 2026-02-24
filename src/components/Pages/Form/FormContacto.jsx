@@ -7,7 +7,7 @@ import { ContactoSchema } from '@/schemas/ContactoSchema'
 import { cambiarTitulo } from '@/utils/cambiarTitulo'
 
 const FormContacto = forwardRef((_, ref) => {
-  const { form, dispatch } = useGlobalState()
+  const { form, dispatch, isReinscripcion } = useGlobalState()
 
   useEffect(() => {
     cambiarTitulo('Contactos de Emergencia')
@@ -37,6 +37,30 @@ const FormContacto = forwardRef((_, ref) => {
     }
   }))
 
+  const handleChange = (e, index) => {
+    const { name, value } = e.target
+
+    dispatch({
+      type: 'UPDATE_ARRAY_ITEM',
+      arrayName: 'contactos',
+      index: index,
+      field: name,
+      value: value
+    })
+  }
+
+  const handleBlur = (e, index) => {
+    const { name, value } = e.target
+
+    dispatch({
+      type: 'UPDATE_ARRAY_ITEM',
+      arrayName: 'contactos',
+      index: index,
+      field: name,
+      value: value.trim()
+    })
+  }
+
   return (
     <div className='bg-base-200 text-base-content mx-auto flex w-full flex-col rounded-md p-6 shadow-2xl'>
       <h2 className='mb-6 text-center text-2xl font-bold'>
@@ -58,18 +82,12 @@ const FormContacto = forwardRef((_, ref) => {
                   value={form.contactos[i].nombre}
                   maxLength={70}
                   name='nombre'
-                  onChange={(e) =>
-                    dispatch({
-                      type: 'UPDATE_ARRAY_ITEM',
-                      arrayName: 'contactos',
-                      index: i,
-                      field: e.target.name,
-                      value: e.target.value
-                    })
-                  }
+                  onChange={(e) => handleChange(e, i)}
+                  onBlur={(e) => handleBlur(e, i)}
                   type='text'
                   placeholder='Nombre Completo *'
                   className='input input-md border-base-content m-auto w-full'
+                  disabled={isReinscripcion}
                 />
               </label>
 
@@ -80,19 +98,13 @@ const FormContacto = forwardRef((_, ref) => {
                 <input
                   value={form.contactos[i].telefono}
                   name='telefono'
-                  onChange={(e) =>
-                    dispatch({
-                      type: 'UPDATE_ARRAY_ITEM',
-                      arrayName: 'contactos',
-                      index: i,
-                      field: e.target.name,
-                      value: e.target.value
-                    })
-                  }
+                  onChange={(e) => handleChange(e, i)}
+                  onBlur={(e) => handleBlur(e, i)}
                   type='tel'
                   placeholder='Télefono *'
                   pattern='[0-9]{10}'
                   className='input input-md border-base-content m-auto w-full'
+                  disabled={isReinscripcion}
                 />
               </label>
 
@@ -102,6 +114,7 @@ const FormContacto = forwardRef((_, ref) => {
                 </span>
                 <select
                   value={form.contactos[i].parentesco}
+                  disabled={isReinscripcion}
                   name='parentesco'
                   onChange={(e) =>
                     dispatch({
@@ -138,18 +151,12 @@ const FormContacto = forwardRef((_, ref) => {
                   <input
                     value={form.contactos[i].otro}
                     name='otro'
-                    onChange={(e) =>
-                      dispatch({
-                        type: 'UPDATE_ARRAY_ITEM',
-                        arrayName: 'contactos',
-                        index: i,
-                        field: e.target.name,
-                        value: e.target.value
-                      })
-                    }
+                    onChange={(e) => handleChange(e, i)}
+                    onBlur={(e) => handleBlur(e, i)}
                     type='text'
                     placeholder='Especifica el parentesco...'
                     className='input input-md border-base-content m-auto w-full'
+                    disabled={isReinscripcion}
                   />
                 </label>
               ) : null}

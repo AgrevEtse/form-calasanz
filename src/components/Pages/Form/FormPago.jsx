@@ -7,7 +7,7 @@ import { PagoSchema } from '@/schemas/PagoSchema'
 import { cambiarTitulo } from '@/utils/cambiarTitulo'
 
 const FormPago = forwardRef((_, ref) => {
-  const { form, dispatch } = useGlobalState()
+  const { form, dispatch, isReinscripcion } = useGlobalState()
 
   useEffect(() => {
     cambiarTitulo('Persona de Pagos')
@@ -22,6 +22,28 @@ const FormPago = forwardRef((_, ref) => {
       toast.success('Responsable de Pagos Guardado')
     }
   }))
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+
+    dispatch({
+      type: 'UPDATE_FIELD',
+      section: 'persona_pago',
+      field: name,
+      value: value
+    })
+  }
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target
+
+    dispatch({
+      type: 'UPDATE_FIELD',
+      section: 'persona_pago',
+      field: name,
+      value: value.trim()
+    })
+  }
 
   return (
     <div className='bg-base-200 text-base-content mx-auto flex w-full flex-col items-center justify-center rounded-md p-6 shadow-2xl'>
@@ -38,17 +60,12 @@ const FormPago = forwardRef((_, ref) => {
             value={form.persona_pago.nombre}
             maxLength={70}
             name='nombre'
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'persona_pago',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={handleChange}
+            onBlur={handleBlur}
             type='text'
             placeholder='Nombre Completo *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -58,6 +75,7 @@ const FormPago = forwardRef((_, ref) => {
           </span>
           <select
             value={form.persona_pago.responsable}
+            disabled={isReinscripcion}
             name='responsable'
             onChange={(e) =>
               dispatch({
@@ -93,17 +111,12 @@ const FormPago = forwardRef((_, ref) => {
             value={form.persona_pago.correo}
             maxLength={50}
             name='correo'
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'persona_pago',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={handleChange}
+            onBlur={handleBlur}
             type='email'
             placeholder='Correo Electrónico *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -114,18 +127,13 @@ const FormPago = forwardRef((_, ref) => {
           <input
             value={form.persona_pago.telefono}
             name='telefono'
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'persona_pago',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={handleChange}
+            onBlur={handleBlur}
             type='tel'
             placeholder='Télefono (móvil) *'
             pattern='[0-9]{10}'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -135,6 +143,7 @@ const FormPago = forwardRef((_, ref) => {
           </span>
           <select
             value={form.persona_pago.factura}
+            disabled={isReinscripcion}
             name='factura'
             onChange={(e) =>
               dispatch({

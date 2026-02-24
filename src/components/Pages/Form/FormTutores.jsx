@@ -7,7 +7,7 @@ import { TutorSchema } from '@/schemas/TutorSchema'
 import { cambiarTitulo } from '@/utils/cambiarTitulo'
 
 const FormTutores = forwardRef((_, ref) => {
-  const { form, dispatch } = useGlobalState()
+  const { form, dispatch, isReinscripcion } = useGlobalState()
 
   useEffect(() => {
     cambiarTitulo('Tutores')
@@ -27,6 +27,28 @@ const FormTutores = forwardRef((_, ref) => {
     }
   }))
 
+  const handleChange = (e, section) => {
+    const { name, value } = e.target
+
+    dispatch({
+      type: 'UPDATE_FIELD',
+      section: section,
+      field: name,
+      value: value
+    })
+  }
+
+  const handleBlur = (e, section) => {
+    const { name, value } = e.target
+
+    dispatch({
+      type: 'UPDATE_FIELD',
+      section: section,
+      field: name,
+      value: value.trim()
+    })
+  }
+
   return (
     <div className='bg-base-200 text-base-content mx-auto flex w-full flex-col items-center justify-center rounded-md p-6 shadow-2xl'>
       <h2 className='mb-6 text-center text-2xl font-bold'>
@@ -41,14 +63,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_1.nombre}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_1',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_1')}
+            onBlur={(e) => handleBlur(e, 'tutor_1')}
             minLength={1}
             maxLength={40}
             name='nombre'
@@ -56,6 +72,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='text'
             placeholder='Nombre(s) *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -65,14 +82,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_1.apellido_paterno}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_1',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_1')}
+            onBlur={(e) => handleBlur(e, 'tutor_1')}
             minLength={1}
             maxLength={40}
             name='apellido_paterno'
@@ -80,6 +91,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='text'
             placeholder='Apellido Paterno *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -89,14 +101,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_1.apellido_materno}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_1',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_1')}
+            onBlur={(e) => handleBlur(e, 'tutor_1')}
             minLength={1}
             maxLength={40}
             name='apellido_materno'
@@ -104,6 +110,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='text'
             placeholder='Apellido Materno *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -113,14 +120,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_1.estado_nacimiento}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_1',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_1')}
+            onBlur={(e) => handleBlur(e, 'tutor_1')}
             minLength={1}
             maxLength={40}
             name='estado_nacimiento'
@@ -128,6 +129,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='text'
             placeholder='Lugar de Nacimiento *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -138,15 +140,9 @@ const FormTutores = forwardRef((_, ref) => {
           <input
             required
             value={form.tutor_1.fecha_nacimiento}
+            disabled={isReinscripcion}
             name='fecha_nacimiento'
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_1',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_1')}
             type='date'
           />
         </label>
@@ -157,14 +153,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_1.domicilio}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_1',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_1')}
+            onBlur={(e) => handleBlur(e, 'tutor_1')}
             minLength={1}
             maxLength={30}
             name='domicilio'
@@ -172,6 +162,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='text'
             placeholder='Domicilio *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -181,14 +172,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_1.colonia}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_1',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_1')}
+            onBlur={(e) => handleBlur(e, 'tutor_1')}
             minLength={1}
             maxLength={30}
             name='colonia'
@@ -196,6 +181,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='text'
             placeholder='Colonia *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -205,14 +191,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_1.codigo_postal}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_1',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_1')}
+            onBlur={(e) => handleBlur(e, 'tutor_1')}
             min={100000}
             max={999999}
             name='codigo_postal'
@@ -220,6 +200,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='number'
             placeholder='C.P. *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -229,14 +210,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_1.telefono_movil}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_1',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_1')}
+            onBlur={(e) => handleBlur(e, 'tutor_1')}
             min={1000000000}
             max={9999999999}
             name='telefono_movil'
@@ -245,6 +220,7 @@ const FormTutores = forwardRef((_, ref) => {
             placeholder='Télefono (móvil) *'
             pattern='[0-9]{10}'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -252,14 +228,8 @@ const FormTutores = forwardRef((_, ref) => {
           <span>Teléfono (fijo)</span>
           <input
             value={form.tutor_1.telefono_fijo}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_1',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_1')}
+            onBlur={(e) => handleBlur(e, 'tutor_1')}
             min={1000000000}
             max={9999999999}
             name='telefono_fijo'
@@ -267,6 +237,7 @@ const FormTutores = forwardRef((_, ref) => {
             placeholder='Télefono (fijo)'
             pattern='[0-9]{10}'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -276,14 +247,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_1.correo_electronico}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_1',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_1')}
+            onBlur={(e) => handleBlur(e, 'tutor_1')}
             minLength={1}
             maxLength={50}
             name='correo_electronico'
@@ -291,6 +256,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='email'
             placeholder='Correo Electrónico *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -300,14 +266,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_1.oupacion}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_1',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_1')}
+            onBlur={(e) => handleBlur(e, 'tutor_1')}
             minLength={1}
             maxLength={40}
             name='oupacion'
@@ -315,6 +275,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='text'
             placeholder='Ocupación *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -325,15 +286,9 @@ const FormTutores = forwardRef((_, ref) => {
           <select
             required
             value={form.tutor_1.grado_max_estudios}
+            disabled={isReinscripcion}
             name='grado_max_estudios'
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_1',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_1')}
           >
             <option
               disabled
@@ -358,6 +313,7 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <select
             value={form.tutor_1.primario}
+            disabled={isReinscripcion}
             name='primario'
             onChange={(e) => {
               dispatch({
@@ -397,14 +353,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_2.nombre}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_2',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_2')}
+            onBlur={(e) => handleBlur(e, 'tutor_2')}
             minLength={1}
             maxLength={40}
             name='nombre'
@@ -412,6 +362,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='text'
             placeholder='Nombre(s) *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -421,14 +372,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_2.apellido_paterno}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_2',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_2')}
+            onBlur={(e) => handleBlur(e, 'tutor_2')}
             minLength={1}
             maxLength={40}
             name='apellido_paterno'
@@ -436,6 +381,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='text'
             placeholder='Apellido Paterno *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -445,14 +391,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_2.apellido_materno}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_2',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_2')}
+            onBlur={(e) => handleBlur(e, 'tutor_2')}
             minLength={1}
             maxLength={40}
             name='apellido_materno'
@@ -460,6 +400,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='text'
             placeholder='Apellido Materno *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -469,14 +410,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_2.estado_nacimiento}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_2',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_2')}
+            onBlur={(e) => handleBlur(e, 'tutor_2')}
             minLength={1}
             maxLength={40}
             name='estado_nacimiento'
@@ -484,6 +419,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='text'
             placeholder='Lugar de Nacimiento *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -494,15 +430,9 @@ const FormTutores = forwardRef((_, ref) => {
           <input
             required
             value={form.tutor_2.fecha_nacimiento}
+            disabled={isReinscripcion}
             name='fecha_nacimiento'
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_2',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_2')}
             type='date'
           />
         </label>
@@ -513,14 +443,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_2.domicilio}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_2',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_2')}
+            onBlur={(e) => handleBlur(e, 'tutor_2')}
             minLength={1}
             maxLength={30}
             name='domicilio'
@@ -528,6 +452,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='text'
             placeholder='Domicilio *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -537,14 +462,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_2.colonia}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_2',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_2')}
+            onBlur={(e) => handleBlur(e, 'tutor_2')}
             minLength={1}
             maxLength={30}
             name='colonia'
@@ -552,6 +471,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='text'
             placeholder='Colonia *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -561,14 +481,7 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_2.codigo_postal}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_2',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_2')}
             min={100000}
             max={999999}
             name='codigo_postal'
@@ -576,6 +489,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='number'
             placeholder='C.P. *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -585,14 +499,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_2.telefono_movil}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_2',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_2')}
+            onBlur={(e) => handleBlur(e, 'tutor_2')}
             min={1000000000}
             max={9999999999}
             name='telefono_movil'
@@ -601,6 +509,7 @@ const FormTutores = forwardRef((_, ref) => {
             placeholder='Teléfono (móvil) *'
             pattern='[0-9]{10}'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -608,14 +517,8 @@ const FormTutores = forwardRef((_, ref) => {
           <span>Teléfono (fijo)</span>
           <input
             value={form.tutor_2.telefono_fijo}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_2',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_2')}
+            onBlur={(e) => handleBlur(e, 'tutor_2')}
             min={1000000000}
             max={9999999999}
             name='telefono_fijo'
@@ -623,6 +526,7 @@ const FormTutores = forwardRef((_, ref) => {
             placeholder='Teléfono (fijo)'
             pattern='[0-9]{10}'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -632,14 +536,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_2.correo_electronico}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_2',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_2')}
+            onBlur={(e) => handleBlur(e, 'tutor_2')}
             minLength={1}
             maxLength={50}
             name='correo_electronico'
@@ -647,6 +545,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='email'
             placeholder='Correo Electrónico *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -656,14 +555,8 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <input
             value={form.tutor_2.oupacion}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_2',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_2')}
+            onBlur={(e) => handleBlur(e, 'tutor_2')}
             minLength={1}
             maxLength={40}
             name='oupacion'
@@ -671,6 +564,7 @@ const FormTutores = forwardRef((_, ref) => {
             type='text'
             placeholder='Ocupación *'
             className='input input-md border-base-content w-full'
+            disabled={isReinscripcion}
           />
         </label>
 
@@ -681,15 +575,9 @@ const FormTutores = forwardRef((_, ref) => {
           <select
             required
             value={form.tutor_2.grado_max_estudios}
+            disabled={isReinscripcion}
             name='grado_max_estudios'
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                section: 'tutor_2',
-                field: e.target.name,
-                value: e.target.value
-              })
-            }
+            onChange={(e) => handleChange(e, 'tutor_2')}
           >
             <option
               disabled
@@ -714,6 +602,7 @@ const FormTutores = forwardRef((_, ref) => {
           </span>
           <select
             value={form.tutor_2.primario}
+            disabled={isReinscripcion}
             name='primario'
             onChange={(e) => {
               dispatch({
