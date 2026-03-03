@@ -68,7 +68,7 @@ const Reinscripcion = () => {
         data.message &&
         data.statusCode !== 200
       ) {
-        toast.error('es este? ' + data.message)
+        toast.error(data.message)
         return
       }
 
