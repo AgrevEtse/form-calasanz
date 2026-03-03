@@ -97,7 +97,12 @@ export const postForm = async ({ curp, form }) => {
   if (data.statusCode === 400) throw new Error(data.errors[0])
 }
 
-export const postReiscripcion = async ({ curp, form }) => {
+export const postReiscripcion = async ({
+  curp,
+  form,
+  maternoPapa,
+  maternoMama
+}) => {
   const hermanosArray = (() => {
     const arr = form.hermanos
       .filter(
@@ -112,6 +117,8 @@ export const postReiscripcion = async ({ curp, form }) => {
 
   const reinscripcionBody = {
     curp: curp,
+    materno_papa: maternoPapa,
+    materno_mama: maternoMama,
 
     alumno: {
       ...form.alumno,

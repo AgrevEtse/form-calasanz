@@ -13,8 +13,15 @@ import FormEnd from '@/components/Pages/Form/FormEnd'
 import { postForm, postReiscripcion } from '@/utils/postForm'
 
 const Form = () => {
-  const { curp, form, currentStep, setCurrentStep, isReinscripcion } =
-    useGlobalState()
+  const {
+    curp,
+    form,
+    maternoPapa,
+    maternoMama,
+    currentStep,
+    setCurrentStep,
+    isReinscripcion
+  } = useGlobalState()
   const stepRef = useRef(null)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -64,7 +71,7 @@ const Form = () => {
       await stepRef.current?.validate?.()
 
       if (isReinscripcion) {
-        await postReiscripcion({ curp, form })
+        await postReiscripcion({ curp, form, maternoPapa, maternoMama })
       } else {
         await postForm({ curp, form })
       }

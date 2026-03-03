@@ -7,6 +7,8 @@ import { useReducer } from 'react'
 
 const GlobalStateProvider = ({ children }) => {
   const [curp, setCurp] = useState(DEFAULT_CURP)
+  const [maternoPapa, setMaternoPapa] = useState('')
+  const [maternoMama, setMaternoMama] = useState('')
   const [isReinscripcion, setIsReinscripcion] = useState(false)
   const [currentStep, setCurrentStep] = useState(0)
 
@@ -69,6 +71,8 @@ const GlobalStateProvider = ({ children }) => {
 
   const resetStates = () => {
     setCurp(DEFAULT_CURP)
+    setMaternoPapa('')
+    setMaternoMama('')
     dispatch({ type: 'RESET', payload: DEFAULT_FORM })
     setCurrentStep(0)
     setIsReinscripcion(false)
@@ -79,6 +83,10 @@ const GlobalStateProvider = ({ children }) => {
       value={{
         curp,
         setCurp,
+        maternoPapa,
+        setMaternoPapa,
+        maternoMama,
+        setMaternoMama,
         isReinscripcion,
         setIsReinscripcion,
         form,
