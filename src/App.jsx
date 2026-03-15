@@ -17,10 +17,10 @@ const App = () => {
   return (
     <>
       <div className='container mx-auto'>
-        <div className='navbar bg-neutral text-neutral-content w-full rounded-2xl shadow-sm'>
+        <div className='navbar bg-royal-blue text-neutral-content w-full rounded-2xl shadow-sm'>
           <div className='navbar-start'>
             <Link
-              className='btn btn-secondary text-xl'
+              className='btn bg-gold text-xl text-black border-gold'
               to='/'
             >
               Calasanz Inscripciones
@@ -31,7 +31,7 @@ const App = () => {
             <Link to='/form'>
               <button
                 onClick={handleClick}
-                className='btn btn-warning mx-1'
+                className='btn btn-accent mx-1'
               >
                 Nueva Inscripción
               </button>

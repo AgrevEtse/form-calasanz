@@ -2,3 +2,8 @@
 @plugin 'daisyui' {
   themes: fantasy --default;
 }
+
+@theme {
+  --color-royal-blue: oklch(46.8% 0.29 255);
+  --color-gold: oklch(87.47% 0.2866 88.07);
+}
