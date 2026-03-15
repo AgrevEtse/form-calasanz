@@ -23,7 +23,7 @@ const HomePage = () => {
             to='/form'
             className='block'
           >
-            <button className='btn btn-warning w-full rounded-xl'>
+            <button className='btn btn-accent w-full rounded-xl'>
               Nueva Inscripción
             </button>
           </Link>
