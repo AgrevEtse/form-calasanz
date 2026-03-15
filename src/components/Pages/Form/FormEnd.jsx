@@ -29,7 +29,7 @@ const FormEnd = forwardRef(() => {
         <div className='flex flex-row justify-center gap-4'>
           <Link to='/form'>
             <button
-              className='btn btn-accent rounded-xl py-2'
+              className='btn btn-info rounded-xl py-2'
               onClick={handleClick}
             >
               Nueva Inscripcion
@@ -37,7 +37,7 @@ const FormEnd = forwardRef(() => {
           </Link>
           <Link to='/reinscripcion'>
             <button
-              className='btn btn-success rounded-xl py-2'
+              className='btn btn-neutral rounded-xl py-2'
               onClick={handleClick}
             >
               Reinscripcion

@@ -23,7 +23,7 @@ const HomePage = () => {
             to='/form'
             className='block'
           >
-            <button className='btn btn-accent w-full rounded-xl'>
+            <button className='btn btn-info w-full rounded-xl'>
               Nueva Inscripción
             </button>
           </Link>
@@ -31,7 +31,7 @@ const HomePage = () => {
             to='/reinscripcion'
             className='block'
           >
-            <button className='btn btn-success w-full rounded-xl'>
+            <button className='btn btn-neutral w-full rounded-xl'>
               Reinscripción
             </button>
           </Link>

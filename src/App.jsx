@@ -31,7 +31,7 @@ const App = () => {
             <Link to='/form'>
               <button
                 onClick={handleClick}
-                className='btn btn-accent mx-1'
+                className='btn btn-info mx-1'
               >
                 Nueva Inscripción
               </button>
@@ -39,7 +39,7 @@ const App = () => {
             <Link to='/reinscripcion'>
               <button
                 onClick={handleClick}
-                className='btn btn-success mx-1'
+                className='btn btn-neutral mx-1'
               >
                 Reinscripción
               </button>
