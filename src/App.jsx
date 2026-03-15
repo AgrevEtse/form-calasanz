@@ -20,7 +20,7 @@ const App = () => {
         <div className='navbar bg-royal-blue text-neutral-content w-full rounded-2xl shadow-sm'>
           <div className='navbar-start'>
             <Link
-              className='btn bg-gold text-xl text-black border-gold'
+              className='btn bg-gold border-gold text-xl text-black'
               to='/'
             >
               Calasanz Inscripciones
